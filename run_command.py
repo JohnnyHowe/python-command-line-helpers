@@ -1,14 +1,15 @@
-from enum import Enum
 import os
-from pathlib import Path
 import queue
-import selectors
-import shlex
 import subprocess
-import sys
 import threading
-from typing import Iterable, Iterator
-from .pretty_print import *
+
+from enum import Enum
+from pathlib import Path
+from typing import Iterator
+try:
+	from .pretty_print import *
+except ImportError:
+	from pretty_print import *
 
 
 class OutputSource(Enum):
