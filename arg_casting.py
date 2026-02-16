@@ -16,6 +16,7 @@ def cast(value, target_type: Type):
 	for parser in [
 			_union_caster,
 			_dict_caster,
+			_list_caster,
 			_generic_caster,
 	]:
 		try:
@@ -68,3 +69,8 @@ def _union_caster(value, target_type: Type):
 			return cast(value, potential_type)
 		except:
 			pass
+
+def _list_caster(value, target_type: Type):
+	if not get_origin(target_type) is list:
+		raise TypeError()
+	return value.split(",")
