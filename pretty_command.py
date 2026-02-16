@@ -17,6 +17,7 @@ def command_to_str(command: list[str], multiline_char="\\", indent_char="\t") ->
 
 
 def _get_command_lines(command: list[str], multiline_char="\\") -> Iterable[str]:
+    """Yield command lines, appending continuation chars to non-final lines."""
     parts = list(_get_command_line_parts(command))
     for index in range(len(parts)):
         line = parts[index]
@@ -26,6 +27,7 @@ def _get_command_lines(command: list[str], multiline_char="\\") -> Iterable[str]
 
 
 def _get_command_line_parts(command: list[str]) -> Iterable[str]:
+    """Yield line parts, grouping ``--flag value`` tokens together."""
     part_index = 0
     while part_index < len(command):
         part = command[part_index]
@@ -37,4 +39,3 @@ def _get_command_line_parts(command: list[str]) -> Iterable[str]:
         else:
             part_index += 1
             yield part
-

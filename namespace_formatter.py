@@ -1,3 +1,5 @@
+"""Namespace normalization helpers for argparse outputs."""
+
 from argparse import Namespace
 
 
@@ -7,4 +9,3 @@ def replace_hypens_with_underscore(args: Namespace) -> None:
 	for name in attributess_with_hyphens:
 		new_name = name.replace('-', '_')
 		setattr(args, new_name, getattr(args, name))
-
