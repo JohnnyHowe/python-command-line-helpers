@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-command-line-helpers"
+version = "0.1.0"
+description = "Helper utilities for Python command-line tooling"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+packages = ["python_command_line_helpers"]
