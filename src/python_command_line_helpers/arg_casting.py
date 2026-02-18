@@ -35,7 +35,10 @@ def _dict_caster(value, target_type: Type) -> dict:
 	if value is None:
 		return data
 	for part in value.split(","):
-		key, value = part.split("=")
+		key_value = part.split("=", 1)
+		if not len(key_value) == 2:
+			raise ValueError(f"Got invalid dict entry {part}!")
+		key, value = key_value
 		data[key.strip()] = value.strip()
 	return data
 
@@ -61,8 +64,9 @@ def _union_caster(value, target_type: Type):
 			return cast_cli_arg(value, potential_type)
 		except:
 			pass
+	raise TypeError(f"Could not cast {value} to {target_type}")
 
 def _list_caster(value, target_type: Type):
-	if not get_origin(target_type) is list:
+	if not (get_origin(target_type) is list or target_type is list):
 		raise TypeError()
 	return value.split(",")

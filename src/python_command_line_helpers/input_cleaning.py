@@ -11,7 +11,12 @@ def replace_hypens_with_underscore(args: Namespace) -> None:
 		setattr(args, new_name, getattr(args, name))
 
 
-def unescape(value: str, literals_to_unescape=["\n"]) -> str:
+def unescape(value: str, literals_to_unescape=["n"]) -> str:
+	escape_map = {
+		"n": "\n",
+		"t": "\t",
+		"r": "\r",
+	}
 	for literal in literals_to_unescape:
-		value = value.replace("\\" + literal, literal)
+		value = value.replace("\\" + literal, escape_map.get(literal, literal))
 	return value
