@@ -7,7 +7,6 @@ from python_command_line_helpers import (
     command_building,
     input_cleaning,
     pretty_command,
-    pretty_print,
 )
 
 
@@ -17,4 +16,3 @@ class ImportTests(unittest.TestCase):
         self.assertIsNotNone(command_building)
         self.assertIsNotNone(input_cleaning)
         self.assertIsNotNone(pretty_command)
-        self.assertIsNotNone(pretty_print)
