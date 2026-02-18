@@ -74,3 +74,6 @@ deactivate
 3. Export intended API from `src/<package_name>/__init__.py`.
 4. Add README install commands for both direct and venv workflows.
 5. Confirm tests can be run from repo root.
+
+# Testing
+Don't be afraid to write tests that fail if the code logic is wrong. We need this.
