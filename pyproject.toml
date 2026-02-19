@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "python-command-line-helpers"
 version = "0.1.0"
 description = "Helper utilities for Python command-line tooling"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
